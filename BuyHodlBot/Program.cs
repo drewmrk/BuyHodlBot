@@ -1,4 +1,8 @@
-﻿using System.Collections.Specialized;
+﻿/*
+ * BuyHodlBot
+ */
+
+using System.Collections.Specialized;
 using System.Net;
 using System.Web;
 using Newtonsoft.Json.Linq;
