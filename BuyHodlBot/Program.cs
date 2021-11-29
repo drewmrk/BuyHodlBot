@@ -1,6 +1,4 @@
-﻿/*
- * BuyHodlBot
- */
+﻿// BuyHodlBot
 
 using System.Collections.Specialized;
 using System.Net;
@@ -11,7 +9,6 @@ using Tweetinvi;
 Console.WriteLine("BuyHodlBot");
 
 TwitterAPI twitterAPI = new();
-
 Console.WriteLine("\nTwitter API\n");
 Console.Write("Consumer Key: ");
 twitterAPI.consumerKey = Console.ReadLine();
@@ -39,7 +36,8 @@ Console.WriteLine($"\nUsing: {cryptocurrency.name} ({cryptocurrency.ticker})");
 /// <summary>
 ///   Get the price of the specified cryptocurrency
 /// </summary>
-string GetCryptocurrencyPrice(string key, string ticker) {
+string GetCryptocurrencyPrice(string key, string ticker)
+{
   UriBuilder URL = new("https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest");
   NameValueCollection queryString = HttpUtility.ParseQueryString(string.Empty);
   queryString["convert"] = "USD";
@@ -61,10 +59,14 @@ string GetCryptocurrencyPrice(string key, string ticker) {
 /// <summary>
 ///   Tweet the current price of the specified cryptocurrency
 /// </summary>
-async Task TweetMessage(string message, TwitterClient twitterClient) {
-  try {
+async Task TweetMessage(string message, TwitterClient twitterClient)
+{
+  try
+  {
     Tweetinvi.Models.ITweet tweet = await twitterClient.Tweets.PublishTweetAsync(message);
-  } catch {
+  }
+  catch
+  {
     Console.WriteLine("An error occurred while tweeting");
   }
 }
@@ -72,7 +74,8 @@ async Task TweetMessage(string message, TwitterClient twitterClient) {
 TwitterClient twitterClient = new(twitterAPI.consumerKey, twitterAPI.consumerSecret,
                                   twitterAPI.accessKey, twitterAPI.accessSecret);
 
-while (true) {
+while (true)
+{
   Thread.Sleep(30000);
 
   string message =
