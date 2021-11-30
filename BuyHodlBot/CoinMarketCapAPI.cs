@@ -3,5 +3,5 @@
 /// </summary>
 struct CoinMarketCapAPI
 {
-  public string key;
+  public string? key;
 }

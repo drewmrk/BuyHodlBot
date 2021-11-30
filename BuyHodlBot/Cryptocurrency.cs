@@ -3,6 +3,6 @@
 /// </summary>
 struct Cryptocurrency
 {
-  public string name;
-  public string ticker;
+  public string? name;
+  public string? ticker;
 }
